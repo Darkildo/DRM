@@ -1,21 +1,26 @@
 name: drm
-description: '''"Decentrazed Rent Market" is an innovative cryptocurrency exchange platform, 
-specializing in providing investors with access to shares of rental funds. 
-Our platform uses blockchain technology to ensure security, transparency,
-and decentralization, 
-allowing participants to make transactions without the need for intermediaries.'''
+# description: ""
+description: "Decentrazed Rent Market is an innovative cryptocurrency exchange platform, specializing in providing investors with access to shares of rental funds."
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' 
+
 version: 1.0.0+1
+
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: '>=3.2.3 <4.0.0'
+
+
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  aptos: ^0.0.5
+  auto_route: ^7.8.4
+  auto_route_generator: ^7.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+
 flutter:
   uses-material-design: true
+
