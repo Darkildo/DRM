@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-import 'package:drm/constants.dart';
+import 'package:drm/code_kit/constants.dart';
 import 'package:drm/parts/ui_kit/ui_kit.dart';
 
 Future<void> main() async {

@@ -1,10 +1,7 @@
 part of "../auth_part.dart";
 
-class AuthRepository implements IAuthRepository {
-  void test() {
-    AptosAccount.fromPrivateKey("");
-  }
-
+final class AuthRepository implements IAuthRepository {
+  const AuthRepository();
   @override
   FutureOr<String?> getPrivateKey() async {
     try {
