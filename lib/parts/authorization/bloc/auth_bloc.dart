@@ -1,5 +1,6 @@
 part of "../auth_part.dart";
 
+
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthRepository _authRepository;
   final AppLogger _logger;
@@ -53,10 +54,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           stackTrace: s,
         ),
       );
-    }
-    if (pKey == null) {
-      emit(AuthUnLogged());
-      return;
     }
 
     emit(AuthUnLogged());
