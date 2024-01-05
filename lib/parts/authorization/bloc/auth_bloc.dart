@@ -21,8 +21,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     ReloadAuthEvent event,
     Emitter<AuthState> emit,
   ) async {
+    String? pKey;
     try {
-      final pKey = await _authRepository.getPrivateKey();
+      emit(AuthLoadInProgress());
+      pKey = await _authRepository.getPrivateKey();
     } catch (e, s) {
       _logger.error(
         LoggerRecord(
@@ -33,5 +35,31 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         ),
       );
     }
+    if (pKey == null) {
+      emit(AuthUnLogged());
+      return;
+    }
+    try {
+      final account = AptosAccount.fromPrivateKey(pKey);
+      pKey = '';
+      emit(AuthLogged(accounts: [account]));
+      return;
+    } catch (e, s) {
+      _logger.error(
+        LoggerRecord(
+          'Failed to get account from private key',
+          name: 'AptosAccount -> fromPrivateKey()',
+          error: AppError.fromException(e),
+          stackTrace: s,
+        ),
+      );
+    }
+    if (pKey == null) {
+      emit(AuthUnLogged());
+      return;
+    }
+
+    emit(AuthUnLogged());
+    return;
   }
 }
