@@ -1,7 +1,8 @@
 part of "../core_part.dart";
 
 class BlocWrappers extends StatelessWidget {
-  const BlocWrappers({super.key});
+  final Widget child;
+  const BlocWrappers({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class BlocWrappers extends StatelessWidget {
           create: (context) => DIC().authBloc,
         ),
       ],
-      child: Container(),
+      child: child,
     );
   }
 }

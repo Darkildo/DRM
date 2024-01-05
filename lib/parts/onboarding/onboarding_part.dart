@@ -1,9 +1,13 @@
 library onboarding_part;
 
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:drm/code_kit/constants.dart';
 import 'package:drm/code_kit/errors/app_error.dart';
 import 'package:drm/parts/logger/logger_kit.dart';
+import 'package:drm/parts/router/router.gr.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

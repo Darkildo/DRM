@@ -9,7 +9,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(
       initial: true,
       page: OnboardingRoute.page,
-      path: OnboardingRoute.name,
+      path: '/',
     )
     // AutoRoute(
     //   initial: true,

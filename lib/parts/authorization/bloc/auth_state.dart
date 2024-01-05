@@ -10,6 +10,10 @@ final class AuthLogged extends AuthState {
   final int currentIndex;
   AuthLogged({required this.accounts, this.currentIndex = 0});
   AptosAccount get current => accounts.first;
+
+
+
+  
 }
 
 final class AuthUnLogged extends AuthState {}

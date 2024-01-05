@@ -3,8 +3,12 @@ part of "../onboarding_part.dart";
 class FirstRunCubit extends Cubit<FirstRunState> {
   final AppLogger _logger;
   FirstRunCubit(this._logger) : super(FirstRunInitial()) {
+    _init();
+  }
+
+  FutureOr<void> _init() async {
     try {
-      SharedPreferences.getInstance().then((prefs) async {
+      await SharedPreferences.getInstance().then((prefs) async {
         final firstRun = prefs.getBool('isFirstRun');
         if (firstRun == null) {
           emit(FirstRunLoaded(isFirstRun: true));
@@ -26,10 +30,13 @@ class FirstRunCubit extends Cubit<FirstRunState> {
       emit(FirstRunLoaded(isFirstRun: true));
     }
   }
+
+  void switchState() {
+    emit(FirstRunLoaded(isFirstRun: false));
+  }
 }
 
 extension FirstRunCubitBuildContextX on BuildContext {
-  FirstRunCubit get rirstRunCubit => read<FirstRunCubit>();
-
+  FirstRunCubit get firstRunCubit => read<FirstRunCubit>();
   FirstRunCubit get watchFirstRunCubit => watch<FirstRunCubit>();
 }

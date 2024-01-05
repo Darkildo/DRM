@@ -62,6 +62,5 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
 extension AuthBlocBuildContextX on BuildContext {
   AuthBloc get authBloc => read<AuthBloc>();
-
   AuthBloc get watchAuthBloc => watch<AuthBloc>();
 }

@@ -13,4 +13,7 @@ final class FirstRunLoaded extends FirstRunState {
   final bool isFirstRun;
 
   FirstRunLoaded({required this.isFirstRun});
+
+  @override
+  List<Object> get props => [isFirstRun];
 }

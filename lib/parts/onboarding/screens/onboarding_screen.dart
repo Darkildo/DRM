@@ -11,11 +11,18 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
-      
     super.initState();
+    Future.delayed(Duration(seconds: 5), () {
+      context.firstRunCubit.switchState();
+    });
   }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: RepaintBoundary(
+        child: CircularProgressIndicator(),
+      ),
+    );
   }
 }
