@@ -1,6 +1,5 @@
 part of "../auth_part.dart";
 
-
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthRepository _authRepository;
   final AppLogger _logger;
@@ -59,4 +58,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(AuthUnLogged());
     return;
   }
+}
+
+extension AuthBlocBuildContextX on BuildContext {
+  AuthBloc get authBloc => read<AuthBloc>();
+
+  AuthBloc get watchAuthBloc => watch<AuthBloc>();
 }

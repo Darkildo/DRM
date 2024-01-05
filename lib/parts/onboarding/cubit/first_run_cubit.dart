@@ -27,3 +27,9 @@ class FirstRunCubit extends Cubit<FirstRunState> {
     }
   }
 }
+
+extension FirstRunCubitBuildContextX on BuildContext {
+  FirstRunCubit get rirstRunCubit => read<FirstRunCubit>();
+
+  FirstRunCubit get watchFirstRunCubit => watch<FirstRunCubit>();
+}
